@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {NavigationActions} from 'react-navigation';
-import{
-   Item,
-   Input,
-   Form,
-   Label,
-   Button
-} from 'native-base';
-import {View, Text,Image, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator,AsyncStorage,TouchableWithoutFeedback,Keyboard  } from 'react-native';
+import { Item, Input, Form, Label, Button } from 'native-base';
+import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator, AsyncStorage, TouchableWithoutFeedback, Keyboard  } from 'react-native';
 export default class Login extends Component{
     async storeToken(token,uuid) {
         try {
@@ -34,13 +28,10 @@ export default class Login extends Component{
             return (
 
                 <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-                    <View style={styles.container}>
-                        <View style={styles.logoStyle}>
-                            {/* <Image large source={require("../../src/img/emblem.png")}></Image> */}
-                            <Text style={styles.textLogoStyle}>MBPS</Text>
-                        </View>
-                        {/* <Logo/> */}
-        
+                    <Form style={styles.container}>
+
+                        <Image  style={{width:400, height: 400}}/>
+                        
                         <TextInput style={styles.inputBox}
         
                         placeholder="Enter Your Email"
@@ -73,7 +64,7 @@ export default class Login extends Component{
         
                         </View>
         
-                    </View>
+                    </Form>
                 </TouchableWithoutFeedback>
     
             );
