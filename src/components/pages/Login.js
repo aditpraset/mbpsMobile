@@ -3,6 +3,7 @@ import axios from 'axios';
 import {NavigationActions} from 'react-navigation';
 import { Item, Input, Form, Label, Button } from 'native-base';
 import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator, AsyncStorage, TouchableWithoutFeedback, Keyboard  } from 'react-native';
+
 export default class Login extends Component{
     async storeToken(token,uuid) {
         try {
@@ -21,7 +22,7 @@ export default class Login extends Component{
      }
      Login=()=>
      {
-        this.props.navigation.navigate('Hal1');
+        this.props.navigation.navigate('Profile');
 
      }
         render(){
@@ -52,16 +53,11 @@ export default class Login extends Component{
                         />
         
                         <TouchableOpacity onPress={this.Login} style={styles.button}>
-        
                             <Text style={styles.buttonText}> Login </Text>
-        
                         </TouchableOpacity>
         
                         <View style={styles.signupTextCont}>
-        
                             <Text style={styles.signupText}><Text style={styles.signupButton}> Copyright</Text> © 2020 MBPS. </Text>
-            
-        
                         </View>
         
                     </Form>
@@ -105,7 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor:'skyblue',
     justifyContent :'center',
     borderRadius: 25,
-    marginVertical: 5,
+    marginVertical: 50,
     paddingVertical: 13
     },
             
