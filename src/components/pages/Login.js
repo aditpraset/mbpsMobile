@@ -31,7 +31,7 @@ export default class Login extends Component{
                 <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
                     <Form style={styles.container}>
 
-                        <Image  style={{width:400, height: 400}}/>
+                        <Image  style={styles.logoStyle} source={require('../images/MBPSAPPS.jpeg')}/>
                         
                         <TextInput style={styles.inputBox}
         
@@ -69,10 +69,11 @@ export default class Login extends Component{
 }
 const styles = StyleSheet.create({
     logoStyle:{
-        marginTop:70,
-        marginBottom:70,
+        marginTop:30,
+        marginBottom:10,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        width:'100%', height: '50%'
     },
     textLogoStyle:{
         fontSize:30,
