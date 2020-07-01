@@ -3,7 +3,13 @@ import { Container, Header,Body, Button, Title, Item, Content, Card, CardItem, F
 import axios from 'axios';
 import {StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default class Profile extends Component {
+
+export default class Homepage extends Component {
+
+  Homepage =()=>
+     {
+        this.props.navigation.navigate('Attendance');
+     }
 
   render() {
     return (
@@ -18,7 +24,7 @@ export default class Profile extends Component {
 
           <Card style={styles.Card}>
 
-              <TouchableOpacity style={styles.login} button onPress={() => alert("This is Card Header")}>
+              <TouchableOpacity button onPress={this.Homepage} style={styles.login} >
                 <Text style={styles.loginText}> Attendance </Text>
               </TouchableOpacity>
 
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
     login: {
     width: 200,    
     backgroundColor:'skyblue',
-    justifyContent :'center',
+    justifyContent :'space-between',
     borderRadius: 25,
     marginVertical: 5,
     paddingVertical: 15
