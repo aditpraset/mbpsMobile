@@ -24,7 +24,7 @@ export default class Login extends Component{
      {
         axios({
             method: 'post',
-            url: 'http://192.168.1.20/login',
+            url: 'http://192.168.1.36/login',
             headers:{
                 Accept:'application/json',
                 'Content-Type':'application/json',
@@ -80,16 +80,11 @@ export default class Login extends Component{
                         />
         
                         <TouchableOpacity onPress={this.Login} style={styles.button}>
-        
                             <Text style={styles.buttonText}> Login </Text>
-        
                         </TouchableOpacity>
         
                         <View style={styles.signupTextCont}>
-        
                             <Text style={styles.signupText}><Text style={styles.signupButton}> Copyright</Text> © 2020 MBPS. </Text>
-            
-        
                         </View>
         
                     </Form>

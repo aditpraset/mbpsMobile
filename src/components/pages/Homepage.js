@@ -17,13 +17,21 @@ export default class Homepage extends Component {
 
     }
  }
+ async storeToken(name,empl_id) {
+    try {
+       await AsyncStorage.setItem("name",name);
+       await AsyncStorage.setItem("empl_id",empl_id);
+    } catch (error) {
+      console.log("Something went wrong", error);
+    }
+  }
 
   _getUserId = async() => {
     const uuid = await AsyncStorage.getItem('uuid');
     const token = await AsyncStorage.getItem('token');
     axios({
         method: 'post',
-        url: 'http://192.168.1.20/emp',
+        url: 'http://192.168.1.36/emp',
         headers:{
             Accept:'application/json',
             'Content-Type':'application/json',
@@ -45,7 +53,8 @@ export default class Homepage extends Component {
                     name:val.name,
                     empl_id:val.employee_id,
                     })
-               });
+               this.storeToken(val.name,val.employee_id);
+            });
             }
         else{
           AsyncStorage.clear()
@@ -68,10 +77,10 @@ export default class Homepage extends Component {
 
               <Text style={styles.EmployeeText}> { this.state.empl_id } </Text>
               
-              <View style={{ flexDirection:'row', marginTop:450,  marginHorizontal: 20, }} >
+              <View style={{ flexDirection:'row', marginTop:20,  marginHorizontal: 20, }} >
                 <View style= {{ justifyContent:'space-between', flexDirection:'row', width:'100%' }} >
                     <View>
-                        <TouchableOpacity style={styles.Menu}>
+                        <TouchableOpacity style={styles.Menu} onPress={()=>this.props.navigation.navigate('Attendance')}>
                         <Image style={{ width:80, height:80 }} source={require('../images/marker.png')}></Image>
                         </TouchableOpacity>
                         <Text style={styles.EmployeeText}> Attendance </Text>
@@ -99,7 +108,7 @@ export default class Homepage extends Component {
 const styles = StyleSheet.create({
   
         container : {
-        backgroundColor:'#7f0000',
+        backgroundColor:'#d50000',
         flex: 1,
         // alignItems:'center',
         // justifyContent :'center'
