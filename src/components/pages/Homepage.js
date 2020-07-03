@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Header,Body, Button, Title, Item, Content, Card, CardItem, Form, View } from 'native-base';
 import axios from 'axios';
 import {StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import {NavigationActions, TabNavigator} from 'react-navigation';
+
 
 export default class Homepage extends Component {
 
@@ -14,16 +16,16 @@ export default class Homepage extends Component {
     
               <Text style={styles.EmployeeText}> Employee Reg Number </Text>
               
-              <View style={{ flexDirection:'row', marginTop:80,  marginHorizontal: 20, }} >
+              <View style={{ flexDirection:'row', marginTop:450,  marginHorizontal: 20, }} >
                 <View style= {{ justifyContent:'space-between', flexDirection:'row', width:'100%' }} >
                     <View>
-                        <TouchableOpacity style={styles.Menu}>
-                        <Image style={{ width:80, height:80 }} source={require('../images/attendance.png')}></Image>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Attendance') } style={styles.Menu} >
+                            <Image style={{ width:80, height:80, borderRadius: 18,}} source={require('../images/attendance.png')}></Image>
                         </TouchableOpacity>
                         <Text style={styles.EmployeeText}> Attendance </Text>
                     </View>
                     <View>
-                        <TouchableOpacity style={styles.Menu}>
+                        <TouchableOpacity style={styles.Menu} onPress={() => alert("This is Card Body")}>
                         <Image style={{ width:80, height:80 }} source={require('../images/staff.png')}></Image>
                         </TouchableOpacity>
                         <Text style={styles.EmployeeText}> Staff </Text>
@@ -55,24 +57,17 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight:'bold',
         color:'black',  
-        textAlign:'center'    
+        textAlign:'center',
+        marginBottom: 50,
+        
         },
     
         EmployeeText: {
         fontSize: 20,
         fontWeight:'normal',
         color:'black',  
-        textAlign:'center'    
-        },
-        
-        Card: {
-        width: 400,
-        height: 400,
-        borderRadius: 10,
-        backgroundColor:'black',
-        marginBottom: 15,
-        alignItems:'center',
-        justifyContent :'center'
+        textAlign:'center',
+        margin:5,
         },
     
         login: {

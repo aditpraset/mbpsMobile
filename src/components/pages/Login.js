@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {NavigationActions} from 'react-navigation';
+import {StackNavigator} from 'react-navigation';
 import { Item, Input, Form, Label, Button } from 'native-base';
 import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator, AsyncStorage, TouchableWithoutFeedback, Keyboard  } from 'react-native';
 
@@ -68,9 +69,10 @@ export default class Login extends Component{
      
 }
 const styles = StyleSheet.create({
+    
     logoStyle:{
         marginTop:30,
-        marginBottom:10,
+        marginBottom:80,
         alignItems:'center',
         justifyContent:'center',
         width:'100%', height: '50%'

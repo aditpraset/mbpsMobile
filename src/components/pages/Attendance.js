@@ -1,43 +1,65 @@
 import React, { Component } from 'react';
-import { Container, Header,Body, Button, Title, Item, Content, Card, CardItem, Form, View } from 'native-base';
+import { Card, CardItem, Text, Body, Form, View, Left} from 'native-base';
 import axios from 'axios';
-import {StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import {StyleSheet, TouchableOpacity, Image } from 'react-native';
+
+
 
 export default class Attendance extends Component {
 
+
+
     render() {
         return (
-          <Form style={styles.container}>
-              <Text style={styles.TitleText}> Mitracomm Ekasarana </Text>
-    
-              <Text style={styles.EmployeeText}> Employee Name </Text>
-    
-              <Text style={styles.EmployeeText}> Employee Reg Number </Text>
-              
-              <View style={{ flexDirection:'row', marginTop:80,  marginHorizontal: 20, }} >
-                <View style= {{ justifyContent:'space-between', flexDirection:'row', width:'100%' }} >
-                    <View>
-                        <TouchableOpacity style={styles.Menu}>
-                        <Image style={{ width:80, height:80 }} source={require('../images/attendance.png')}></Image>
-                        </TouchableOpacity>
-                        <Text style={styles.EmployeeText}> Attendance </Text>
-                    </View>
-                    <View>
-                        <TouchableOpacity style={styles.Menu}>
-                        <Image style={{ width:80, height:80 }} source={require('../images/staff.png')}></Image>
-                        </TouchableOpacity>
-                        <Text style={styles.EmployeeText}> Staff </Text>
-                    </View>
-                    <View>
-                        <TouchableOpacity style={styles.Menu}>
-                        <Image style={{ width:80, height:80 }} source={require('../images/options.png')}></Image>
-                        </TouchableOpacity>
-                        <Text style={styles.EmployeeText}> Options </Text>
-                    </View>
-                </View>
-              </View>
+            <Form style={styles.container}>
+                <Text style={styles.TittleText}> Mitracomm Ekasarana </Text>
+        
+                <Text style={styles.EmployeeText}> Employee Name </Text>
+        
+                <Text style={styles.EmployeeText}> Employee Reg Number </Text>
 
-          </Form>
+                <Card style={styles.HeaderCard}>
+
+                    <View>
+                        <Text style={styles.MenuText}>
+                            Schedule In :
+                        </Text>
+                    </View>
+                    <View bordered>
+                        <Text style={styles.MenuText}>
+                            Schedule Out :
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.MenuText}>
+                            Check In :
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.MenuText}>
+                            Check Out :
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.MenuText}>
+                            Check In Location :
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.MenuText}>
+                            Check Out Location :
+                        </Text>
+                    </View>
+                </Card>
+                <View>
+                    <TouchableOpacity onPress={() => alert("Thanks For Check In")} style={styles.Menu} >
+                        <Image style={{ width:80, height:80, borderRadius: 18,}}></Image>
+                    </TouchableOpacity>
+
+                    <Text style={styles.EmployeeText}> Check In </Text>
+                </View>
+
+            </Form>
         );
     }
 }
@@ -50,30 +72,37 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent :'center'
         },
-    
-        TitleText: {
+
+        TittleText: {
         fontSize: 30,
         fontWeight:'bold',
         color:'black',  
-        textAlign:'center'    
+        textAlign:'center',
+        marginBottom:50
         },
-    
+        
         EmployeeText: {
         fontSize: 20,
         fontWeight:'normal',
         color:'black',  
-        textAlign:'center'    
+        textAlign:'center',
+        margin:5,
+
+
         },
-        
-        Card: {
-        width: 400,
-        height: 400,
-        borderRadius: 10,
-        backgroundColor:'black',
-        marginBottom: 15,
-        alignItems:'center',
-        justifyContent :'center'
+
+        MenuText: {
+        flexDirection:'column',
+        justifyContent:'space-between',
+        fontSize: 20,
+        fontWeight:'bold',
+        color:'black',  
+        textAlign:'left',
+        marginLeft:20,
+        marginVertical:20,
+        marginBottom:20,
         },
+    
     
         login: {
         width: 200,    
@@ -98,8 +127,19 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderRadius: 18,
         marginHorizontal: 20,
+        marginTop:10,
         justifyContent:'center',
         alignItems:'center',
-        }
+        }, 
+
+        HeaderCard: {
+        backgroundColor: 'skyblue',
+        marginTop:50,
+        borderRadius: 10,
+        borderWidth: 0.5,
+        borderColor: '#000',
+        width:400,
+        height:400,
+        },
     
     });
