@@ -68,7 +68,7 @@ export default class Homepage extends Component {
 
               <Text style={styles.EmployeeText}> { this.state.empl_id } </Text>
               
-              <View style={{ flexDirection:'row', marginTop:80,  marginHorizontal: 20, }} >
+              <View style={{ flexDirection:'row', marginTop:450,  marginHorizontal: 20, }} >
                 <View style= {{ justifyContent:'space-between', flexDirection:'row', width:'100%' }} >
                     <View>
                         <TouchableOpacity style={styles.Menu}>
